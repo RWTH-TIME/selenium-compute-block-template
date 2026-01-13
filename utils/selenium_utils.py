@@ -1,0 +1,25 @@
+from selenium import webdriver
+
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+
+def create_chrome_driver(
+    options: Options | None = None,
+    headless: bool = True
+):
+    if options is None:
+        options = Options()
+
+        if headless:
+            options.add_argument("--headless=new")
+
+        options.add_argument("--disable-gpu")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
+
+    return driver

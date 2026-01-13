@@ -1,0 +1,7 @@
+name: Template 
+author: Paul Kalhorn 
+description: Use this template to create your own 
+docker_image: <TODO> 
+entrypoints:
+  exemplary_entrypoint:
+    description: exemplary 
